@@ -1,27 +1,19 @@
-## Run from terminal:
-
-docker build -t creditcard.azurecr.io/cc:latest .
-
-docker login creditcard.azurecr.io
-
-docker push creditcard.azurecr.io/cc:latest
-
 <div align="center">
 
 # 💳 Credit Card Fraud Detection 🕵️‍♀️
 
 **Credit Card Fraud Detection** is a machine learning project built to identify fraudulent transactions using predictive analytics. It uses multiple ML models, feature engineering, and performance evaluation techniques to ensure reliable fraud prediction. The project is containerized with Docker and ready for cloud deployment via Azure Container Registry.
 
-[Portfolio](https://your-portfolio-link.com) • [GitHub](https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection)
+[Portfolio](https://harshkushwaha-portfolio.vercel.app) • [GitHub](https://github.com/harshkushwaha7x/Credit-Card-Fraud-Detection)
 
 </div>
 
 ---
 
 <p align="center">
-  <a href="https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection"><img src="https://img.shields.io/github/last-commit/divyaagarwal7/Credit-Card-Fraud-Detection?style=flat-square" alt="last commit"></a>
-  <a href="https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection"><img src="https://img.shields.io/github/languages/top/divyaagarwal7/Credit-Card-Fraud-Detection?style=flat-square" alt="languages"></a>
-  <a href="https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
+  <a href="https://github.com/harshkushwaha7x/Credit-Card-Fraud-Detection"><img src="https://img.shields.io/github/last-commit/harshkushwaha7x/Credit-Card-Fraud-Detection?style=flat-square" alt="last commit"></a>
+  <a href="https://github.com/harshkushwaha7x/Credit-Card-Fraud-Detection"><img src="https://img.shields.io/github/languages/top/harshkushwaha7x/Credit-Card-Fraud-Detection?style=flat-square" alt="languages"></a>
+  <a href="https://github.com/harshkushwaha7x/Credit-Card-Fraud-Detection/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
   <img src="https://img.shields.io/badge/version-1.0.0-success?style=flat-square" alt="version" />
 </p>
 
@@ -58,7 +50,7 @@ This project aims to detect fraudulent credit card transactions using machine le
 
 **Language:** Python  
 **Libraries:** NumPy, Pandas, Scikit-Learn, Matplotlib, Seaborn, XGBoost  
-**Environment:** Jupyter Notebook / Python Script  
+**Environment:** Streamlit / Jupyter Notebook  
 **Containerization:** Docker  
 **Deployment:** Azure Container Registry  
 **Version Control:** Git & GitHub
@@ -76,7 +68,7 @@ This project aims to detect fraudulent credit card transactions using machine le
 ├── models/                    # Saved trained models (.pkl)
 ├── Dockerfile                 # Docker configuration
 ├── requirements.txt           # Python dependencies
-├── app.py                     # Flask or Streamlit inference app
+├── app.py                     # Streamlit inference app
 ├── README.md                  # Project documentation
 └── LICENSE                    # License file
 ```
@@ -87,7 +79,7 @@ This project aims to detect fraudulent credit card transactions using machine le
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection.git
+git clone https://github.com/harshkushwaha7x/Credit-Card-Fraud-Detection.git
 cd Credit-Card-Fraud-Detection
 ```
 
@@ -101,12 +93,12 @@ pip install -r requirements.txt
 
 3. **Run the application**
 ```bash
-python app.py
+streamlit run app.py
 ```
 
 4. **Access locally**
 ```
-http://localhost:5000
+http://localhost:8501
 ```
 
 ---
@@ -126,7 +118,7 @@ http://localhost:5000
 
 4. **Prediction & Deployment**  
    - Export best model (`model.pkl`).  
-   - Deploy as API using Flask or Streamlit.  
+   - Deploy as API using Streamlit.  
 
 ---
 
@@ -141,7 +133,7 @@ docker push creditcard.azurecr.io/cc:latest
 
 ### Run Locally
 ```bash
-docker run -p 5000:5000 creditcard.azurecr.io/cc:latest
+docker run -p 8501:8501 creditcard.azurecr.io/cc:latest
 ```
 
 ---
@@ -185,13 +177,13 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
 
 ## 📬 Contact
 
-**Divya Agarwal** — Developer & Maintainer  
-- GitHub: [https://github.com/divyaagarwal7](https://github.com/divyaagarwal7)  
-- LinkedIn: [https://linkedin.com/in/divyaagarwal7](https://linkedin.com/in/divyaagarwal7)  
-- Email: divyaagarwal@example.com  
+**Harsh Kushwaha** — Developer & Maintainer  
+- GitHub: [https://github.com/harshkushwaha7x](https://github.com/harshkushwaha7x)  
+- LinkedIn: [https://linkedin.com/in/harshkushwaha7x](https://linkedin.com/in/harshkushwaha7x)  
+- Email: harshkushwaha.dev@gmail.com  
 
 ---
 
 <div align="center">
-Made by <b>Divya Agarwal</b> 💻
+Made by <b>Harsh Kushwaha</b> 💻
 </div>
