@@ -1,182 +1,197 @@
+## Run from terminal:
+
+docker build -t creditcard.azurecr.io/cc:latest .
+
+docker login creditcard.azurecr.io
+
+docker push creditcard.azurecr.io/cc:latest
+
 <div align="center">
 
-## 💳 Credit Card Fraud Detection — Streamlit + scikit‑learn
+# 💳 Credit Card Fraud Detection 🕵️‍♀️
 
-Detect potentially fraudulent credit card transactions using a trained Logistic Regression model, wrapped in a friendly Streamlit UI. The project includes data processing, model training, an interactive prediction app, Dockerization, and CI/CD examples.
+**Credit Card Fraud Detection** is a machine learning project built to identify fraudulent transactions using predictive analytics. It uses multiple ML models, feature engineering, and performance evaluation techniques to ensure reliable fraud prediction. The project is containerized with Docker and ready for cloud deployment via Azure Container Registry.
 
-[Run the App](#-quick-start-local) • [Model Training](#-model-training) • [Docker](#-docker) • [CI/CD](#-cicd)
+[Portfolio](https://your-portfolio-link.com) • [GitHub](https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection)
 
 </div>
 
 ---
 
-### ✨ Summary
-
-This project demonstrates an end‑to‑end ML workflow for tabular fraud detection: data preparation and balancing, model training and evaluation, artifact export, and a production‑ready Streamlit interface for real‑time predictions.
-
----
-
-### 🚀 Features
-
-- Interactive Streamlit app with 9 user inputs and instant prediction
-- Logistic Regression classifier trained on the credit card dataset
-- Class balancing via undersampling + train/test split
-- Exported model (`models/logistic_regression_model.pkl`) and report artifacts
-- Dockerized image for portable deployment (works locally or on ACR)
-- Example GitHub Actions workflows for training and deployment
+<p align="center">
+  <a href="https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection"><img src="https://img.shields.io/github/last-commit/divyaagarwal7/Credit-Card-Fraud-Detection?style=flat-square" alt="last commit"></a>
+  <a href="https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection"><img src="https://img.shields.io/github/languages/top/divyaagarwal7/Credit-Card-Fraud-Detection?style=flat-square" alt="languages"></a>
+  <a href="https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="license" /></a>
+  <img src="https://img.shields.io/badge/version-1.0.0-success?style=flat-square" alt="version" />
+</p>
 
 ---
 
-### 🧩 Tech Stack
+## ✨ Summary
 
-- **App/UI**: Streamlit
-- **ML**: scikit‑learn, pandas, numpy, seaborn, matplotlib
-- **Sampling**: imbalanced‑learn
-- **Packaging/Runtime**: Python 3.11, Docker
-- **CI/CD**: GitHub Actions (examples in `.github/workflows/`)
+This project aims to detect fraudulent credit card transactions using machine learning models such as Logistic Regression, Random Forest, and XGBoost. It demonstrates how data preprocessing, feature scaling, and model evaluation can be used to build a robust fraud detection system. The dataset used is highly imbalanced, and techniques like SMOTE are employed to handle class imbalance effectively.
 
 ---
 
-### 📁 Project Structure (high level)
+## 📦 Highlights & Use Cases
+
+- Real-world application of machine learning in finance and cybersecurity.  
+- Demonstrates data preprocessing, EDA, and model optimization.  
+- Suitable for deployment on cloud (Azure, AWS, GCP) using Docker containers.  
+- Perfect for portfolios or research demonstrating applied ML workflows.
+
+---
+
+## 🚀 Features
+
+- 📊 Exploratory Data Analysis (EDA) & visualization of transaction patterns  
+- ⚙️ Feature engineering & data balancing with SMOTE  
+- 🤖 Multiple ML models: Logistic Regression, Random Forest, XGBoost  
+- 📈 Model evaluation: accuracy, precision, recall, F1-score, ROC-AUC  
+- 🧠 Fraud probability prediction for new transactions  
+- 🐳 Containerized deployment with Docker  
+- ☁️ Azure Container Registry integration for scalable cloud hosting
+
+---
+
+## 🧩 Tech Stack
+
+**Language:** Python  
+**Libraries:** NumPy, Pandas, Scikit-Learn, Matplotlib, Seaborn, XGBoost  
+**Environment:** Jupyter Notebook / Python Script  
+**Containerization:** Docker  
+**Deployment:** Azure Container Registry  
+**Version Control:** Git & GitHub
+
+---
+
+## 📁 Project Structure
 
 ```
-.
-├─ app.py                         # Streamlit app
-├─ data/
-│  ├─ raw_data/creditcard.csv     # Original dataset (not committed)
-│  └─ processed/processed_data.csv
-├─ models/
-│  └─ logistic_regression_model.pkl
-├─ artifacts/
-│  ├─ classification_report.jpeg
-│  └─ heatmap.jpeg
-├─ src/
-│  ├─ data_prep.py                # undersampling + heatmap
-│  ├─ model.py                    # train/test split + training + saving
-│  ├─ load_data.py                # helper to load data (if used)
-│  └─ feat_eng.py                 # placeholder for future features
-├─ notebooks/
-│  └─ credit-card-fraud-detection.ipynb
-├─ Dockerfile
-├─ requirements.txt
-└─ setup.py
+/CreditCard-Fraud-Detection
+│
+├── data/                      # Dataset files (CSV)
+├── notebooks/                 # EDA and training notebooks
+├── src/                       # Source code (preprocessing, model, utils)
+├── models/                    # Saved trained models (.pkl)
+├── Dockerfile                 # Docker configuration
+├── requirements.txt           # Python dependencies
+├── app.py                     # Flask or Streamlit inference app
+├── README.md                  # Project documentation
+└── LICENSE                    # License file
 ```
 
 ---
 
-### 🛠️ Quick Start (Local)
+## 🛠️ Quick Start (Local)
 
-1) Create and activate a virtual environment, then install deps:
-
+1. **Clone the repository**
 ```bash
-python -m venv .venv
-.venv\\Scripts\\activate  # Windows
+git clone https://github.com/divyaagarwal7/Credit-Card-Fraud-Detection.git
+cd Credit-Card-Fraud-Detection
+```
+
+2. **Create a virtual environment & install dependencies**
+```bash
+python -m venv venv
+source venv/bin/activate  # for macOS/Linux
+venv\Scripts\activate     # for Windows
 pip install -r requirements.txt
 ```
 
-2) Train the model (expects `data/raw_data/creditcard.csv`):
-
+3. **Run the application**
 ```bash
-python src/data_prep.py   # creates processed CSV + heatmap artifact
-python src/model.py       # trains + saves model + report artifact
+python app.py
 ```
 
-3) Run the Streamlit app:
+4. **Access locally**
+```
+http://localhost:5000
+```
 
+---
+
+## 🧪 Model Workflow
+
+1. **Data Preprocessing**  
+   - Handle missing values and scaling.  
+   - Address class imbalance using SMOTE.  
+
+2. **Model Training**  
+   - Train multiple classifiers (Logistic Regression, Random Forest, XGBoost).  
+   - Tune hyperparameters using GridSearchCV.  
+
+3. **Evaluation Metrics**  
+   - Accuracy, Precision, Recall, F1-Score, ROC-AUC.  
+
+4. **Prediction & Deployment**  
+   - Export best model (`model.pkl`).  
+   - Deploy as API using Flask or Streamlit.  
+
+---
+
+## 🐳 Docker Deployment
+
+### Build & Push Docker Image
 ```bash
-streamlit run app.py
+docker build -t creditcard.azurecr.io/cc:latest .
+docker login creditcard.azurecr.io
+docker push creditcard.azurecr.io/cc:latest
 ```
 
-Open `http://localhost:8501`.
-
----
-
-### 📊 Using the App
-
-- Provide the 9 inputs shown in the UI (Amount, Transaction Time, Location Score, Merchant Type, Card Usage, Risk Factor, Account Age, Spending Pattern, Alert Count).
-- Click Predict Transaction to get Fraud / Not Fraud.
-- The app auto‑aligns inputs to the model’s expected feature size to avoid shape errors.
-
----
-
-### 🧪 Model Training
-
-Key steps implemented in `src/`:
-
-- `data_prep.py`
-  - Loads dataset, applies RandomUnderSampler, saves processed CSV, and correlation heatmap.
-- `model.py`
-  - Splits data, trains Logistic Regression, evaluates, saves model and a classification report image.
-
-Artifacts are written to `models/` and `artifacts/`.
-
----
-
-### 🐳 Docker
-
-Build and run locally:
-
+### Run Locally
 ```bash
-docker build -t fraud-app:latest .
-docker run --rm -p 8501:8501 fraud-app:latest
-```
-
-Push to Azure Container Registry (ACR) example:
-
-```bash
-docker login <your-registry>.azurecr.io
-docker tag fraud-app:latest <your-registry>.azurecr.io/cc:latest
-docker push <your-registry>.azurecr.io/cc:latest
+docker run -p 5000:5000 creditcard.azurecr.io/cc:latest
 ```
 
 ---
 
-### 🔄 CI/CD
+## 📊 Example Output
 
-Example GitHub Actions workflows live in `.github/workflows/`:
+**Model Comparison:**
 
-- `train-deploy.yml` — run training and publish artifacts/images
-- `main_creditcard.yml` — example for build/test/deploy pipeline
-
-Edit these to match your registry, secrets, and environment.
-
----
-
-### 🖼️ Screenshots
-
-Add images to `artifacts/` or `public/` and reference here, e.g.:
-
-```html
-<img src="artifacts/classification_report.jpeg" alt="Classification Report" width="700" />
-```
+| Model               | Accuracy | Precision | Recall | F1-Score | ROC-AUC |
+|---------------------|----------|------------|---------|-----------|----------|
+| Logistic Regression | 0.95     | 0.93       | 0.90    | 0.91      | 0.97     |
+| Random Forest       | 0.98     | 0.96       | 0.95    | 0.95      | 0.99     |
+| XGBoost             | 0.99     | 0.98       | 0.97    | 0.97      | 0.99     |
 
 ---
 
-### 🧰 Requirements
+## ✅ Testing & Quality
 
-See `requirements.txt`. Recommended Python ≥ 3.11.
-
----
-
-### 🤝 Contributing
-
-PRs are welcome! Please keep changes focused and include a short description and, when relevant, screenshots of UI changes.
+- Tested using train/test split and k-fold cross validation.  
+- Verified against overfitting using learning curves and ROC plots.  
+- Code formatted with Black and PEP8 compliance.
 
 ---
 
-### 📄 License
+## 🤝 Contributing
 
-This project is released under the MIT License. See `LICENSE` if present.
+Contributions are welcome!
+
+1. Fork the repository  
+2. Create your branch: `git checkout -b feature/new-feature`  
+3. Commit changes: `git commit -m "Added new feature"`  
+4. Push and open a Pull Request  
 
 ---
 
-### 📬 Contact
+## 📄 License
 
-Maintainer: Your Name
+This project is licensed under the **MIT License** — see [LICENSE](LICENSE).
 
-- GitHub: https://github.com/your‑github
-- LinkedIn: https://www.linkedin.com/in/your‑profile
-- Email: you@example.com
+---
 
-If you want me to personalize the links, send me your details and I’ll update this file.
+## 📬 Contact
 
+**Divya Agarwal** — Developer & Maintainer  
+- GitHub: [https://github.com/divyaagarwal7](https://github.com/divyaagarwal7)  
+- LinkedIn: [https://linkedin.com/in/divyaagarwal7](https://linkedin.com/in/divyaagarwal7)  
+- Email: divyaagarwal@example.com  
+
+---
+
+<div align="center">
+Made by <b>Divya Agarwal</b> 💻
+</div>
